@@ -56,8 +56,8 @@ var experiencesList = [
     }
   ]
 
-const App = ()=> {
-  return (
+const App = ()=> 
+   (
     <div>
     <Header/>
     <Experience experiences={experiencesList}/>
@@ -66,10 +66,10 @@ const App = ()=> {
     <Footer/>
     </div>
   )
-}
 
-const Header = ()=>{
-  return (
+
+const Header = ()=>
+   (
     <header id="about">
     <a href="ShiyasFullStackDeveloper.docx" download className="btn download">Download CV</a> 
     <nav>
@@ -101,16 +101,16 @@ const Header = ()=>{
 </header>
 
   );
-}
 
-const Experience = ({experiences})=>{
-  return(
+
+const Experience = ({experiences})=>
+  (
     <section className="work" id="work">
     <div className="content-wrap">
         <h2>Work Experience</h2>
         <div> 
-          {experiences.map( (exp) => {
-            return (
+          {experiences.map( exp => 
+             (
               <div key={exp.id}>
 
                   <div className="col-narrow">
@@ -130,15 +130,14 @@ const Experience = ({experiences})=>{
 
               
             )
-        })}
+        )}
           </div>
     </div>
     </section>
   )
-}
 
-const Education = ({qualifications})=>{
-  return (
+const Education = ({qualifications})=>
+   (
 <section className="education" id="education">
       <div className="content-wrap">
           <h2>Education</h2>
@@ -160,10 +159,10 @@ const Education = ({qualifications})=>{
       </div>    
   </section>
     )
-}
 
-const Technologies = ()=> {
-  return(
+
+const Technologies = ()=> 
+  (
     <section className="tecnnologies container" id="technologies">
     <div className="content-wrap">
         <h2>Technologies & Tools</h2>
@@ -205,10 +204,10 @@ const Technologies = ()=> {
     {/* <!-- content-wrap    --> */}
 </section>
   )
-}
 
-const Footer = () => {
-  return(
+
+const Footer = () => 
+  (
     <footer id="contact">
     <div className="content-wrap">            
         <h2>Lets keep in touch!</h2>
@@ -234,7 +233,7 @@ const Footer = () => {
     </div>    
 </footer>
   )
-}
+
 
 
 export default App;
