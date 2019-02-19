@@ -8,6 +8,8 @@ class App extends Component {
       <div>
       <Header/>
       <Experience/>
+      <Technologies/>
+      <Footer/>
       </div>
 
     );
@@ -76,6 +78,84 @@ class Experience extends Component {
           {/* <!-- End of school details. --> */}
       </div>    
   </section>
+    )
+  }
+}
+
+class Technologies extends Component {
+  render(){
+    return(
+      <section className="tecnnologies container" id="technologies">
+      <div className="content-wrap">
+          <h2>Technologies</h2>
+      </div>
+      
+                   <div className="row">
+                      <div className="col-xs-6 col-lg-offset-1 col-sm-4 col-lg-3 col-md-3"><img src="images/technologies/HTML5.png" alt=""/></div>
+                      <div className="col-xs-6 col-lg-offset-1 col-sm-4 col-lg-3 col-md-3"><img src="images/technologies/CSS3.png" alt=""/></div>
+                      <div className="clearfix visible-xs-block"></div>   
+                      
+                      <br className="visible-xs-block"/>                 
+                      <br className="visible-xs-block"/>
+
+                      <div className="col-xs-6 col-lg-offset-1 col-sm-4 col-lg-3 col-md-3"><img src="images/technologies/JavaScript.png" alt=""/></div>   
+                      <div className="clearfix visible-lg-block"></div>   
+           
+                      <div className="col-xs-6 col-lg-offset-1 col-sm-4 col-lg-3 col-md-4"><img src="images/technologies/Bootstrap.png" alt=""/></div>
+                      <div className="clearfix visible-xs-block"></div>   
+
+                      <br className="visible-xs-block"/>                 
+                      <br className="visible-xs-block"/>
+
+                      <div className="col-xs-6  col-lg-offset-1 col-sm-4 col-lg-3 col-md-4"><img src="images/technologies/AngularJS.png" alt=""/></div>
+                      <div className="col-xs-6 col-lg-offset-1 col-sm-4 col-lg-3 col-md-4"><img src="images/technologies/jQuery.png" alt=""/></div>
+                      <div className="clearfix visible-lg-block"></div>   
+
+                      <br className="visible-xs-block"/>                 
+                      <br className="visible-xs-block"/>
+
+                      <div className="col-xs-6 col-lg-offset-1 col-sm-4 col-lg-3 col-md-4"><img src="images/technologies/Git.png" alt=""/></div>
+                      <div className="col-xs-6 col-lg-offset-1 col-sm-4 col-lg-3 col-md-4"><img src="images/technologies/MongoDB.png" alt=""/></div>
+                      <div className="clearfix visible-xs-block"></div>   
+
+                      <br className="visible-xs-block"/>                 
+                      <br className="visible-xs-block"/>
+                      
+                      <div className="col-xs-6 col-lg-offset-1 col-sm-4 col-lg-3 col-md-4 hidden-xs"><img src="images/technologies/AmazonWebServices.png" alt=""/></div>
+                  </div>
+      {/* <!-- content-wrap    --> */}
+  </section>
+    )
+  }
+}
+
+class Footer extends Component {
+  render(){
+    return(
+      <footer id="contact">
+      <div className="content-wrap">            
+          <h2>Lets keep in touch!</h2>
+          
+          {/* <!-- Social media and contact links. Add or remove any networks. --> */}
+          <div className="contact-info">
+              <a href="mailto:cmshiyas007@gmail.com">cmshiyas007@gmail.com</a>
+              <a href="http://cmshiyas.com" target="_blank">cmshiyas.com</a>
+              <a href="https://twitter.com/cmshiyas" target="_blank">
+                  <i className="fa fa-twitter" aria-hidden="true"></i>
+                  <span className="sr-only">Twitter</span>
+              </a>
+              
+              <a href="https://www.linkedin.com/in/cmshiyas/" target="_blank"><i className="fa fa-linkedin" aria-hidden="true"></i>
+                  <span className="sr-only">LinkedIn</span></a>
+              <a href="https://www.facebook.com/cmshiyas" target="_blank"><i className="fa fa-facebook" aria-hidden="true"></i>
+                  <span className="sr-only">facebook</span></a>
+                  <a href="https://github.com/cmshiyas" target="_blank"><i className="fa fa-github" aria-hidden="true"></i>
+                      <span className="sr-only">github</span></a>
+          </div>
+
+          <p>Copyright 2017 by Shiyas Cholamukhath</p>
+      </div>    
+  </footer>
     )
   }
 }
