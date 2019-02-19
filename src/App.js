@@ -5,10 +5,15 @@ import './App.css';
 class App extends Component {
   render() {
     return (
+      <div>
       <Header/>
+      <Experience/>
+      </div>
+
     );
   }
 }
+
 
 class Header extends Component {
   render(){
@@ -44,6 +49,34 @@ class Header extends Component {
   </header>
 
     );
+  }
+}
+
+class Experience extends Component {
+  render(){
+    return(
+      <section className="education" id="education">
+      <div className="content-wrap">
+          <h2>Education</h2>
+
+          {/* <!-- School details: copy this whole block to add more schools. --> */}
+          <h3>BITS Pilani, 2006-2010</h3>
+          <p>MS in Software Engineering</p>
+          <p>CGPA - 6.75</p>
+          
+          {/* <!-- Add as many paragraphs as you need. --> */}
+
+          {/* <!-- Graduation Details --> */}
+          <h3>Calicut University, 2003-2006</h3>
+          <p>Bachelor Of Science in Mathematics</p>
+          <p>CGPA - 8.4</p>
+          
+          {/* <!-- Add as many paragraphs as you need. --> */}
+
+          {/* <!-- End of school details. --> */}
+      </div>    
+  </section>
+    )
   }
 }
 
