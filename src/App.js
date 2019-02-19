@@ -2,12 +2,54 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+var experiences = [
+  {"id": 1, "title": "Delivery Lead", "company":"Tabcorp", "startDate":"Oct 2018", "endDate": "Present", 
+      "contributions":[
+          { "id":"1","contri":"Delivery lead"}
+          ]
+  },
+  {"id": 2, "title": "Team Lead", "company":"Tabcorp", "startDate":"May 2018", "endDate": "Oct 2018",
+      "contributions":[
+          { "id":"1","contri":"Team lead"}
+          ]
+  },
+  {"id": 3, "title": "Lead Technical Engineer", "company":"JXT GLOBAL", "startDate":"October 2017", "endDate": "May 2018",
+  "contributions":[
+      { "id":"1","contri":"Triage support ticket, prioritize and delegate to the team"},
+      { "id":"2","contri":"Design and development of new modules, enhancements or change request on the exiting platform using front end technologies like HTML5, CSS3, Sass, Less, JavaScript & JQuery"},
+      { "id":"3","contri":"Development & Enhancement of single page application & Mobile friendly website"},
+      { "id":"4","contri":"Work on backend technologies like PHP & MySQL database"},
+      { "id":"5","contri":"Work on AWS S3, Cpanel hosting, Wordpress CMS"},
+      { "id":"6","contri":"Analysis and resolution of support tickets within given SLA."},
+      { "id":"7","contri":"Implementation of Agile engineering practices"},
+      { "id":"8","contri":"Defining and implementation of development and release workflow"},
+      { "id":"9","contri":"Mentoring team on SCRUM Manifesto and adopting SCRUM Practices in the organization"}
+      ]
+},
+{"id": 4, "title": "Technical Support Analyst", "company":"JXT Global", "startDate":"August 2017", "endDate": "Oct 2017",
+"contributions":[
+  { "id":"1","contri":"Triage support ticket, prioritize and delegate to the team."},
+  { "id":"2","contri":"Triage support ticket, prioritize and delegate to the team."},
+  { "id":"3","contri":"Triage support ticket, prioritize and delegate to the team."}
+
+  ]
+},
+{"id": 5, "title": "Senior Technical Lead", "company":"MetricStream Infotech", "startDate":"May 2018", "endDate": "Oct 2018",
+"contributions":[
+  { "id":"1","contri":"Triage support ticket, prioritize and delegate to the team."},
+  { "id":"2","contri":"Triage support ticket, prioritize and delegate to the team."},
+  { "id":"3","contri":"Triage support ticket, prioritize and delegate to the team."}
+  ]
+}
+  ];
+
 class App extends Component {
   render() {
     return (
       <div>
       <Header/>
       <Experience/>
+      <Education/>
       <Technologies/>
       <Footer/>
       </div>
@@ -55,6 +97,42 @@ class Header extends Component {
 }
 
 class Experience extends Component {
+  render(){
+    return(
+      <section className="work" id="work">
+      <div className="content-wrap">
+          <h2>Work Experience</h2>
+          <div> 
+            {experiences.map( (exp) => {
+              return (
+                <div key={exp.id}>
+
+                    <div className="col-narrow">
+                        <h3>{exp.title}</h3>
+                        <p className="uppercase">{exp.company}</p>
+                        <p>{exp.startDate} to {exp.endDate}</p>
+                    </div>
+                        <div className="col-wide job-description">
+                            <p>Key Contributions</p>
+                                <ul>
+                                    {exp.contributions.map( (data) => {
+                                        return (<li key={data.id}>{data.contri}</li>)
+                                    })}
+                                </ul>
+                        </div>
+                    </div>
+
+                
+              )
+          })}
+            </div>
+      </div>
+      </section>
+    )
+  }
+}
+
+class Education extends Component {
   render(){
     return(
       <section className="education" id="education">
