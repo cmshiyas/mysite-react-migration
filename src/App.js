@@ -43,6 +43,19 @@ var experiences = [
 }
   ];
 
+  var qualification = [
+    {
+      university: "BITS Pilani",
+      year: "2006-2010",
+      course: "MS in Software Engineering"
+    },
+    {
+      university: "Calicut University",
+      year: "2003-2006",
+      course: "Bachelor of Science in Mathematics"
+    }
+  ]
+
 class App extends Component {
   render() {
     return (
@@ -140,20 +153,19 @@ class Education extends Component {
           <h2>Education</h2>
 
           {/* <!-- School details: copy this whole block to add more schools. --> */}
-          <h3>BITS Pilani, 2006-2010</h3>
-          <p>MS in Software Engineering</p>
-          <p>CGPA - 6.75</p>
-          
-          {/* <!-- Add as many paragraphs as you need. --> */}
+          {
+            qualification.map( (el) => {
+              return (
+                <div key = {el.id}>
+                <h3>{el.university}</h3>
+                <p>{el.year}</p>
+                <p>{el.course}</p>
+                <br/>
+                </div>
+              )
+            }) 
+          }
 
-          {/* <!-- Graduation Details --> */}
-          <h3>Calicut University, 2003-2006</h3>
-          <p>Bachelor Of Science in Mathematics</p>
-          <p>CGPA - 8.4</p>
-          
-          {/* <!-- Add as many paragraphs as you need. --> */}
-
-          {/* <!-- End of school details. --> */}
       </div>    
   </section>
     )
@@ -165,7 +177,7 @@ class Technologies extends Component {
     return(
       <section className="tecnnologies container" id="technologies">
       <div className="content-wrap">
-          <h2>Technologies</h2>
+          <h2>Technologies & Tools</h2>
       </div>
       
                    <div className="row">
