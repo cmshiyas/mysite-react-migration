@@ -1,71 +1,39 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 
-var experiencesList = [
-  {"id": 1, "title": "Delivery Lead", "company":"Tabcorp", "startDate":"Oct 2018", "endDate": "Present", 
-      "contributions":[
-          { "id":"1","contri":"Delivery lead"}
-          ]
-  },
-  {"id": 2, "title": "Team Lead", "company":"Tabcorp", "startDate":"May 2018", "endDate": "Oct 2018",
-      "contributions":[
-          { "id":"1","contri":"Team lead"}
-          ]
-  },
-  {"id": 3, "title": "Lead Technical Engineer", "company":"JXT GLOBAL", "startDate":"October 2017", "endDate": "May 2018",
-  "contributions":[
-      { "id":"1","contri":"Triage support ticket, prioritize and delegate to the team"},
-      { "id":"2","contri":"Design and development of new modules, enhancements or change request on the exiting platform using front end technologies like HTML5, CSS3, Sass, Less, JavaScript & JQuery"},
-      { "id":"3","contri":"Development & Enhancement of single page application & Mobile friendly website"},
-      { "id":"4","contri":"Work on backend technologies like PHP & MySQL database"},
-      { "id":"5","contri":"Work on AWS S3, Cpanel hosting, Wordpress CMS"},
-      { "id":"6","contri":"Analysis and resolution of support tickets within given SLA."},
-      { "id":"7","contri":"Implementation of Agile engineering practices"},
-      { "id":"8","contri":"Defining and implementation of development and release workflow"},
-      { "id":"9","contri":"Mentoring team on SCRUM Manifesto and adopting SCRUM Practices in the organization"}
-      ]
-},
-{"id": 4, "title": "Technical Support Analyst", "company":"JXT Global", "startDate":"August 2017", "endDate": "Oct 2017",
-"contributions":[
-  { "id":"1","contri":"Triage support ticket, prioritize and delegate to the team."},
-  { "id":"2","contri":"Triage support ticket, prioritize and delegate to the team."},
-  { "id":"3","contri":"Triage support ticket, prioritize and delegate to the team."}
 
-  ]
-},
-{"id": 5, "title": "Senior Technical Lead", "company":"MetricStream Infotech", "startDate":"May 2018", "endDate": "Oct 2018",
-"contributions":[
-  { "id":"1","contri":"Triage support ticket, prioritize and delegate to the team."},
-  { "id":"2","contri":"Triage support ticket, prioritize and delegate to the team."},
-  { "id":"3","contri":"Triage support ticket, prioritize and delegate to the team."}
-  ]
+class App extends Component {
+  
+  state = {
+    loading: false,
+    positions: [],
+    qualificationsList: []
+  }
+
+  componentDidMount(){
+    this.setState({loading: true})
+    fetch('http://localhost:3001/positions')
+    .then( data => data.json())
+    .then( json => json.positions)
+    .then( positions => this.setState({positions, loading: false}))
+  }
+
+  render(){
+
+    return(
+      <div>
+      <Header/>
+      {this.state.loading? "loading..." : <Experience experiences={this.state.positions}/>}
+      <Education qualifications={this.state.qualificationsList}/>
+      <Technologies/>
+      <Footer/>
+      </div>
+    )
+  }
+
 }
-  ];
 
-  var qualificationsList = [
-    {
-      university: "BITS Pilani",
-      year: "2006-2010",
-      course: "MS in Software Engineering"
-    },
-    {
-      university: "Calicut University",
-      year: "2003-2006",
-      course: "Bachelor of Science in Mathematics"
-    }
-  ]
-
-const App = ()=> 
-   (
-    <div>
-    <Header/>
-    <Experience experiences={experiencesList}/>
-    <Education qualifications={qualificationsList}/>
-    <Technologies/>
-    <Footer/>
-    </div>
-  )
 
 
 const Header = ()=>
@@ -102,49 +70,85 @@ const Header = ()=>
 
   );
 
+class Experience extends Component {
 
-const Experience = ({experiences})=>
-  (
-    <section className="work" id="work">
-    <div className="content-wrap">
-        <h2>Work Experience</h2>
-        <div> 
-          {experiences.map( exp => 
-             (
-              <div key={exp.id}>
+    
+  state = {
+    loading: false,
+    positions: []
+  }
 
-                  <div className="col-narrow">
-                      <h3>{exp.title}</h3>
-                      <p className="uppercase">{exp.company}</p>
-                      <p>{exp.startDate} to {exp.endDate}</p>
-                  </div>
-                      <div className="col-wide job-description">
-                          <p>Key Contributions</p>
-                              <ul>
-                                  {exp.contributions.map( (data) => {
-                                      return (<li key={data.id}>{data.contri}</li>)
-                                  })}
-                              </ul>
-                      </div>
-                  </div>
+  componentDidMount(){
+    this.setState({loading: true})
+    fetch('http://localhost:3001/positions')
+    .then( data => data.json())
+    .then( json => json.positions)
+    .then( positions => this.setState({positions, loading: false}))
+  }
 
-              
-            )
-        )}
-          </div>
-    </div>
-    </section>
-  )
 
-const Education = ({qualifications})=>
-   (
-<section className="education" id="education">
+  render(){
+    return(
+      <section className="work" id="work">
+      <div className="content-wrap">
+          <h2>Work Experience</h2>
+          {this.state.loading? 'loading..':          <div> 
+            {this.state.positions.map( exp => 
+               (
+                <div key={exp.id}>
+  
+                    <div className="col-narrow">
+                        <h3>{exp.title}</h3>
+                        <p className="uppercase">{exp.company}</p>
+                        <p>{exp.startDate} to {exp.endDate}</p>
+                    </div>
+                        <div className="col-wide job-description">
+                            <p>Key Contributions</p>
+                                <ul>
+                                    {exp.contributions.map( (data) => {
+                                        return (<li key={data.id}>{data.contri}</li>)
+                                    })}
+                                </ul>
+                        </div>
+                    </div>
+  
+                
+              )
+          )}
+            </div>
+ }
+      </div>
+      </section>
+   
+    )
+  }
+}
+
+class Education extends Component{
+
+      
+  state = {
+    loading: false,
+    qualifications: []
+  }
+
+  componentDidMount(){
+    this.setState({loading: true})
+    fetch('http://localhost:3001/qualifications')
+    .then( data => data.json())
+    .then( json => json.qualificationsList)
+    .then( qualifications => this.setState({qualifications, loading: false}))
+  }
+
+  render(){
+    return(
+    <section className="education" id="education">
       <div className="content-wrap">
           <h2>Education</h2>
 
           {/* <!-- School details: copy this whole block to add more schools. --> */}
           {
-            qualifications.map( (education) => {
+            this.state.qualifications.map( (education) => {
               return (
                 <div key = {education.id}>
                 <h3>{education.university}</h3>
@@ -158,7 +162,11 @@ const Education = ({qualifications})=>
 
       </div>    
   </section>
+
     )
+  }
+}
+
 
 
 const Technologies = ()=> 
