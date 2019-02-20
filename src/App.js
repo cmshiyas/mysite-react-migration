@@ -24,8 +24,8 @@ class App extends Component {
     return(
       <div>
       <Header/>
-      {this.state.loading? "loading..." : <Experience experiences={this.state.positions}/>}
-      <Education qualifications={this.state.qualificationsList}/>
+      <Experience/>}
+      <Education/>
       <Technologies/>
       <Footer/>
       </div>
