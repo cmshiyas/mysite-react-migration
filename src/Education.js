@@ -10,7 +10,7 @@ export class Education extends Component{
   
     componentDidMount(){
       this.setState({loading: true})
-      fetch('http://localhost:3001/qualifications')
+      fetch('https://arcane-sea-82980.herokuapp.com/qualifications')
       .then( data => data.json())
       .then( json => json.qualificationsList)
       .then( qualifications => this.setState({qualifications, loading: false}))
