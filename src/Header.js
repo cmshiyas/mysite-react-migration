@@ -2,7 +2,7 @@ import React from 'react'
 export const Header = ()=>
    (
     <header id="about">
-    <a href="/docs/ShiyasFullStackDeveloper.docx" download className="btn download">Download CV</a> 
+    <a href="ShiyasFullStackDeveloper.docx" download className="btn download">Download CV</a> 
     <nav>
         <a href="#about">About</a>
         <a href="#work">Work Experience</a>
