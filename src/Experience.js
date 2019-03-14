@@ -8,7 +8,7 @@ export class Experience extends Component {
   
     componentDidMount(){
       this.setState({loading: true})
-      fetch('https://mysite-positions/.herokuapp.com/positions')
+      fetch('https://mysite-positions.herokuapp.com/positions')
       .then( data => data.json())
       .then( json => json.positions)
       .then( positions => this.setState({positions, loading: false}))
