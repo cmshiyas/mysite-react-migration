@@ -15,13 +15,6 @@ class App extends Component {
     qualificationsList: []
   }
 
-  componentDidMount(){
-    this.setState({loading: true})
-    fetch('http://localhost:3001/positions')
-    .then( data => data.json())
-    .then( json => json.positions)
-    .then( positions => this.setState({positions, loading: false}))
-  }
 
   render(){
 
