@@ -12,7 +12,8 @@ export const Header = ()=>
             <a>Projects</a>
             <div className="dropdown-content">
               <a href="https://cmshiyas.github.io/bouncingballs/" target="_blank">Bouncing Balls</a>
-              <a href="https://cmshiyas.github.io/bouncingballs/" target="_blank">NY Times</a>
+              <a href="https://mmfizaan.com/" target="_blank">React & Gatsby</a>
+              
                 {/* <!-- <a href="#">Link 3</a> --> */}
             </div>
         </div>
